@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "title": "DOTFLEX — AI Branding & UI/UX Studio",
+    "description": "Instant brand names • AI logos • Business cards • Full UI/UX. Launch your brand in minutes."
+  },
+  "hero": {
+    "badge": "AI-Powered Branding Studio",
+    "title": "Your brand.<br />Instantly.",
+    "subtitle": "Name generator • AI logos • Business cards • Pixel-perfect UI/UX.<br />Built for startups that move at light speed.",
+    "ctaText": "Start Building Now"
+  },
+  "services": [
+    { "title": "Brand Name Generator", "desc": "AI that creates memorable, available names", "icon": "✍️", "toolType": "name" },
+    { "title": "AI Logo Studio", "desc": "Instant professional logos in 4 styles", "icon": "🎨", "toolType": "logo" },
+    { "title": "Business Cards", "desc": "Live preview + instant PDF export", "icon": "💼", "toolType": "card" },
+    { "title": "UI/UX Design", "desc": "Figma-ready interfaces & user flows", "icon": "📱", "toolType": null }
+  ],
+  "process": {
+    "title": "From idea to brand in under 10 minutes",
+    "subtitle": "No meetings. No revisions. Just results.",
+    "ctaText": "Launch My Brand Now →"
+  }
+}

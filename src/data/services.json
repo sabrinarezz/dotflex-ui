@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": "Services — DOTFLEX",
+    "description": "Professional branding & design services for fast-moving startups"
+  },
+  "hero": {
+    "badge": "Our Services",
+    "title": "Everything your brand needs",
+    "subtitle": "From name to logo to full UI/UX — all powered by AI.",
+    "ctaText": "Try Tools Free"
+  },
+  "services": [
+    { "title": "Brand Name Generator", "desc": "AI that creates memorable, available names", "icon": "✍️", "toolType": "name" },
+    { "title": "AI Logo Studio", "desc": "Instant professional logos in 4 styles", "icon": "🎨", "toolType": "logo" },
+    { "title": "Business Cards", "desc": "Live preview + instant PDF export", "icon": "💼", "toolType": "card" }
+  ],
+  "process": null
+}

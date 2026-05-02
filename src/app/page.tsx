@@ -1,66 +1,56 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+
+import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+// import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import Services from '@/components/Services';
+import Headline from '@/components/Headline';
+import CTAs from '@/components/CTAs';
+// import Footer from '@/components/Footer';
+import Brandname from '@/components/modals/Brandname';
+import Logo from '@/components/modals/Logo';
+import CardDesigner from '@/components/modals/CardDesigner';
+import Gravity from '@/components/Gravity';
+import LiveToolsSection from '@/components/LiveToolsSection';
+import LaunchCTASection from '@/components/LaunchCTASection';
 
 export default function Home() {
+  const [modal, setModal] = useState<'name' | 'logo' | 'card' | null>(null);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      {/* <Header /> */}
+      <Gravity />
+      <main>
+        {/* <CosmicCard title="SPACE" accentColor="#6ba0d4"/> */}
+        {/* <Gravity /> */}
+        <Hero />
+        <Services setActiveModal={setModal} />
+        <LiveToolsSection />
+        <LaunchCTASection />
+        {/* <ServicesV2 setActiveModal={setModal} /> */}
+        {/* <Headline /> */}
+        {/* <CTAs /> */}
       </main>
-    </div>
+
+      {/* <Footer /> */}
+
+      <AnimatePresence>
+        {modal && (
+          <div
+            className="modal fade show d-block"
+            style={{ backgroundColor: 'rgba(10,0,21,0.94)', zIndex: 2000 }}
+            onClick={() => setModal(null)}
+          >
+            <div className="modal-dialog modal-xl modal-dialog-centered">
+              {modal === 'name' && <Brandname onClose={() => setModal(null)} />}
+              {modal === 'logo' && <Logo onClose={() => setModal(null)} />}
+              {modal === 'card' && <CardDesigner onClose={() => setModal(null)} />}
+            </div>
+          </div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
