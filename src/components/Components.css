@@ -52,7 +52,7 @@
 }
 
 .cosmic-planet-card {
-  width: 320px;
+  /* width: 320px; */
   height: 460px;
   border-radius: 28px;
   overflow: hidden;

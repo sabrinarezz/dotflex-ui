@@ -109,7 +109,7 @@ export default function ServicesPage() {
         </div>
 
         {/* <BlackHole /> */}
-        <OrbitingPlanetHero />
+        {/* <OrbitingPlanetHero /> */}
         {/* <SpaceshipLaunchHero /> */}
         {/* <CosmicPortalHero /> */}
 

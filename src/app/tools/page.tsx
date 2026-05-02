@@ -111,7 +111,7 @@ export default function ToolsPage() {
         </div>
 
         {/* Orbiting Circular Navigation */}
-        <div className="orbit-wrapper">
+        <div className="orbit-wrapper d-none d-md-block">
           <div className="orbit-container mx-auto">
             {tools.map((tool, index) => {
               const angle = (index * 90) - (activeTool * 90);

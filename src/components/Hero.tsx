@@ -19,7 +19,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.4, ease: 'easeOut' }}
           >
-            <div className="d-inline-flex glow-shadow align-items-center gap-2 px-4 py-2 glass rounded-pill mb-5">
+            <div className="d-inline-flex glow-shadow align-items-center gap-2 px-4 py-2 glass rounded-pill my-5">
               <Sparkles size={18} className="text-info" /> Cosmic Identity Lab
             </div>
 

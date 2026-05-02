@@ -16,7 +16,7 @@ export default function Services({ setActiveModal }: ServicesProps) {
   ];
 
   return (
-    <section id="services" className="py-5 py-lg-5 position-relative cosmic-bg starfield-canvas opacity-10">
+    <section id="services" className="py-5 py-lg-5 position-relative cosmic-bg starfield-canvas" style={{ opacity: 10 }}>
       <div className="nebula-overlay opacity-40" />
       <div className="container py-5">
         <div className="row g-5 justify-content-center">
