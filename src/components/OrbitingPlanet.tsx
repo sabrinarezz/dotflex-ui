@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export default function OrbitingPlanetHero() {
   return (
-    <section className="min-vh-100 position-relative d-flex align-items-center justify-content-center overflow-hidden">
+    <section className="min-vh-100 position-relative d-flex align-items-center justify-content-center overflow-hidden mt-5">
 
       {/* Starfield Background */}
       <div className="position-absolute inset-0 starfield" />
@@ -46,7 +46,7 @@ export default function OrbitingPlanetHero() {
       </div>
 
       {/* Orbiting Feature Icons (Planets) */}
-      <div className="orbiting-planets-container">
+      <div className="orbiting-planets-container d-none d-md-block">
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 50, repeat: Infinity, ease: "linear" }}

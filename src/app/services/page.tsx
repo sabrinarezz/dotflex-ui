@@ -76,9 +76,9 @@ export default function ServicesPage() {
         </div>
 
         <OrbitingPlanetHero />
-        
+
         {/* Hero Section */}
-        <div className="position-relative z-3 pt-5 mt-5 pb-4">
+        <div className="position-relative z-3">
           <div className="container text-center">
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
