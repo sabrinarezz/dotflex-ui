@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Paperclip, Sparkles } from 'lucide-react';
+import { sendWhatsAppMessage } from '@/services/waService';
 
 interface EmailModalProps {
   isOpen: boolean;
@@ -58,6 +59,16 @@ export default function EmailModal({ isOpen, onClose }: EmailModalProps) {
     }
   };
 
+  const handleClick = () => {
+    sendWhatsAppMessage({
+      phone: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "",
+      name: "Shreya",
+      email: "shreya@email.com",
+      project: "Dotflex Landing Page",
+      message: "Need branding + frontend development.",
+    });
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -79,24 +90,25 @@ export default function EmailModal({ isOpen, onClose }: EmailModalProps) {
               </div>
 
               <div className="modal-body p-5">
-                <form onSubmit={handleSubmit}>
+                {/* <form onSubmit={handleSubmit}> */}
+                <form>
                   {/* Form fields remain same as before */}
                   <div className="row g-4">
                     <div className="col-md-6">
                       <label className="form-label">Your Email Address</label>
-                      <input type="email" required value={formData.from} onChange={(e) => setFormData({...formData, from: e.target.value})} className="form-control form-control-lg bg-dark border-secondary text-white" placeholder="you@domain.com" />
+                      <input type="email" required value={formData.from} onChange={(e) => setFormData({ ...formData, from: e.target.value })} className="form-control form-control-lg bg-dark border-secondary text-white" placeholder="you@domain.com" />
                     </div>
                     <div className="col-md-6">
                       <label className="form-label">Subject</label>
-                      <input type="text" required value={formData.subject} onChange={(e) => setFormData({...formData, subject: e.target.value})} className="form-control form-control-lg bg-dark border-secondary text-white" placeholder="Branding Project Inquiry" />
+                      <input type="text" required value={formData.subject} onChange={(e) => setFormData({ ...formData, subject: e.target.value })} className="form-control form-control-lg bg-dark border-secondary text-white" placeholder="Branding Project Inquiry" />
                     </div>
                     <div className="col-12">
                       <label className="form-label">CC (Optional)</label>
-                      <input type="text" value={formData.cc} onChange={(e) => setFormData({...formData, cc: e.target.value})} className="form-control form-control-lg bg-dark border-secondary text-white" placeholder="partner@company.com" />
+                      <input type="text" value={formData.cc} onChange={(e) => setFormData({ ...formData, cc: e.target.value })} className="form-control form-control-lg bg-dark border-secondary text-white" placeholder="partner@company.com" />
                     </div>
                     <div className="col-12">
                       <label className="form-label">Your Message</label>
-                      <textarea required value={formData.body} onChange={(e) => setFormData({...formData, body: e.target.value})} rows={7} className="form-control form-control-lg bg-dark border-secondary text-white" placeholder="Write your message here..." />
+                      <textarea required value={formData.body} onChange={(e) => setFormData({ ...formData, body: e.target.value })} rows={7} className="form-control form-control-lg bg-dark border-secondary text-white" placeholder="Write your message here..." />
                     </div>
                     <div className="col-12">
                       <label className="form-label">Attachment (Optional)</label>
@@ -104,7 +116,11 @@ export default function EmailModal({ isOpen, onClose }: EmailModalProps) {
                     </div>
                   </div>
 
-                  <button type="submit" disabled={isSending} className="btn btn-cosmic w-100 mt-5 py-4 fs-5 fw-semibold rounded-3">
+                  <button 
+                    onClick={handleClick} 
+                    type="submit" 
+                    disabled={isSending} 
+                    className="btn btn-cosmic w-100 mt-5 py-4 fs-5 fw-semibold rounded-3">
                     {isSending ? "Transmitting through Nebula..." : "Send Message to Dotflex.UI"}
                     <Send size={22} className="ms-3" />
                   </button>
