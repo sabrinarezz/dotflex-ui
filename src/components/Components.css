@@ -187,3 +187,11 @@
   opacity: 0.85;
   /* text-transform: uppercase; */
 }
+
+.starfield {
+  background-image: 
+    radial-gradient(circle, rgba(255,255,255,0.85) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.5) 1.5px, transparent 2px);
+  background-size: 85px 85px, 150px 150px;
+  opacity: 0.4;
+}

@@ -18,6 +18,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" data-bs-theme="dark">
       <head>
         <link rel="icon" href="/logo-dark-2.png" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
       </head>
       <body className={`${inter.className} bg-dark text-white`}>
         <Header />

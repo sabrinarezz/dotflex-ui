@@ -5,11 +5,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 // import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Sparkles, Palette, CreditCard, Monitor, Rocket, CheckCircle, Zap, Globe, Download } from 'lucide-react';
+import EmailModal from '@/components/modals/EmailModal';
 
 export default function ToolsPage() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [activeTool, setActiveTool] = useState(0);
   const [scrollY, setScrollY] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   // Cursor Glow + Gravity Effect
   useEffect(() => {
@@ -75,16 +77,16 @@ export default function ToolsPage() {
       {/* <Navbar /> */}
 
       <main className="min-vh-100 position-relative cosmic-bg overflow-hidden">
-        
+
         {/* Cursor Glow + Gravity Effect */}
-        <div 
+        <div
           className="cursor-glow"
           style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
         />
 
         {/* Scroll-based Star Trails */}
-        <div 
-          className="star-trails" 
+        <div
+          className="star-trails"
           style={{ opacity: Math.min(scrollY / 1200, 0.85) }}
         />
 
@@ -135,8 +137,8 @@ export default function ToolsPage() {
                   whileHover={{ scale: isActive ? 1.35 : 1.15 }}
                   onClick={() => setActiveTool(index)}
                 >
-                  <div 
-                    className="glass orbit-card text-center" 
+                  <div
+                    className="glass orbit-card text-center"
                     style={{ borderColor: `${tool.color}66` }}
                   >
                     <div style={{ color: tool.color }} className="mb-4">
@@ -150,13 +152,13 @@ export default function ToolsPage() {
             })}
           </div>
 
-            {/* Central Core */}
-            <div className="central-core">
-              <div className="core-inner d-flex flex-column align-items-center">
-                <Rocket size={54} className="text-info" />
-                <p className="mt-3 mb-0 fw-semibold text-info">CORE</p>
-              </div>
+          {/* Central Core */}
+          <div className="central-core">
+            <div className="core-inner d-flex flex-column align-items-center">
+              <Rocket size={54} className="text-info" />
+              <p className="mt-3 mb-0 fw-semibold text-info">CORE</p>
             </div>
+          </div>
         </div>
 
         {/* Active Tool Expanded Content */}
@@ -191,14 +193,14 @@ export default function ToolsPage() {
                   <div className="bg-black/40 rounded-3 p-4 h-100">
                     <h6 className="text-info mb-3">WHY BRANDS LOVE IT</h6>
                     <p className="text-white fs-5">{tools[activeTool].benefits}</p>
-                    <div className="mt-auto pt-5">
+                    {/* <div className="mt-auto pt-5">
                       <button 
                         onClick={() => alert(`Launching ${tools[activeTool].title} live demo...`)}
                         className="btn btn-cosmic w-100 py-3 fs-5 rounded-pill"
                       >
                         Try It Live Now →
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -238,20 +240,23 @@ export default function ToolsPage() {
 
         {/* Final CTA */}
         <div className="container position-relative z-3 py-5 text-center">
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.03 }}
             className="glass p-5 rounded-4 d-inline-block max-w-2xl"
           >
             <h3 className="display-5 fw-bold mb-3">Ready to build your brand at light speed?</h3>
             <p className="fs-4 text-secondary">All tools are completely free to try right now.</p>
-            <button 
-              onClick={() => window.location.href = '/'}
+            <button
+              // onClick={() => window.location.href = '/'}
+              onClick={() => setIsOpen(true)}
               className="btn btn-cosmic btn-lg px-5 py-4 fs-4 rounded-pill mt-4"
             >
               Explore All Tools <Rocket className="ms-3" />
             </button>
           </motion.div>
         </div>
+
+        <EmailModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
       </main>
 
       {/* <Footer /> */}

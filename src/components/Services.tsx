@@ -19,6 +19,10 @@ export default function Services({ setActiveModal }: ServicesProps) {
     <section id="services" className="py-5 py-lg-5 position-relative cosmic-bg starfield-canvas" style={{ opacity: 10 }}>
       <div className="nebula-overlay opacity-40" />
       <div className="container py-5">
+        <h1 className="display-5 text-center w-75 fw-normal mx-auto mb-5" style={{ textShadow: '0 0 60px rgba(192,132,252,0.45)' }}>
+          A premium digital identity studio for startups & businesses.
+        </h1>
+
         <div className="row g-5 justify-content-center">
           <div className="col-lg-4 col-md-6">
             <CosmicCard variant="stars" title="BRANDS" subtitle="Shapes • Space • Shades" />

@@ -1,8 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import EmailModal from './modals/EmailModal';
+import { useState } from 'react';
 
 export default function CTAs() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <section id="process" className="py-5 border-top border-violet-subtle position-relative cosmic-radial-bg">
       <div className="container text-center position-relative">
@@ -28,11 +32,14 @@ export default function CTAs() {
         <motion.button
           whileHover={{ scale: 1.08, y: -8 }}
           whileTap={{ scale: 0.96 }}
-          onClick={() => document.getElementById('tools')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => setIsOpen(true)}
+          // onClick={() => document.getElementById('tools')?.scrollIntoView({ behavior: 'smooth' })}
           className="btn btn-cosmic btn-lg px-5 py-4 fs-3 fw-bold rounded-pill shadow-lg"
         >
           Begin Launch Sequence →
         </motion.button>
+
+        <EmailModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
       </div>
     </section>
   );

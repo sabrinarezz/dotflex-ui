@@ -6,13 +6,12 @@ import { motion } from 'framer-motion';
 import Footer from '@/components/Footer';
 import CosmicCard from '@/components/CosmicCard';
 import { Sparkles, Palette, CreditCard, Monitor, Rocket, Clock } from 'lucide-react';
-import BlackHole from '@/components/BlackHole';
+import EmailModal from '@/components/modals/EmailModal';
 import OrbitingPlanetHero from '@/components/OrbitingPlanet';
-import SpaceshipLaunchHero from '@/components/SpaceshipLaunch';
-import CosmicPortalHero from '@/components/CosmicPortal';
 
 export default function ServicesPage() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -68,19 +67,20 @@ export default function ServicesPage() {
       {/* <Header /> */}
 
       <main className="min-vh-100 position-relative cosmic-bg overflow-hidden">
-        
+
         {/* <BlackHole /> */}
-        {/* Mouse Parallax Galaxy Background */}
         <div className="parallax-container">
           <div className="parallax-layer stars-layer" style={{ transform: `translate(${mousePosition.x * 1.9}px, ${mousePosition.y * 1.9}px)` }} />
           <div className="parallax-layer nebula-layer" style={{ transform: `translate(${mousePosition.x * 0.65}px, ${mousePosition.y * 0.65}px)` }} />
           <div className="parallax-layer planets-layer" style={{ transform: `translate(${mousePosition.x * 0.28}px, ${mousePosition.y * 0.28}px)` }} />
         </div>
 
+        <OrbitingPlanetHero />
+        
         {/* Hero Section */}
         <div className="position-relative z-3 pt-5 mt-5 pb-4">
           <div className="container text-center">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               className="display-1 fw-bold mb-3"
@@ -89,6 +89,7 @@ export default function ServicesPage() {
             </motion.h1>
             <p className="lead text-secondary fs-3 max-w-2xl mx-auto">
               From cosmic naming to stellar interfaces — we craft brands that feel born among the stars.
+              <br />
             </p>
           </div>
         </div>
@@ -98,10 +99,10 @@ export default function ServicesPage() {
           <div className="row g-5 justify-content-center">
             {servicesData.map((service, i) => (
               <div key={i} className="col-lg-4 col-md-6">
-                <CosmicCard 
-                  variant={service.variant || 'stars'} 
-                  title={service.title.split(' ')[0]} 
-                  subtitle={service.subtitle} 
+                <CosmicCard
+                  variant={service.variant || 'stars'}
+                  title={service.title.split(' ')[0]}
+                  subtitle={service.subtitle}
                 />
               </div>
             ))}
@@ -113,11 +114,17 @@ export default function ServicesPage() {
         {/* <SpaceshipLaunchHero /> */}
         {/* <CosmicPortalHero /> */}
 
+        <div className="py-5 cosmic-bg">
+          <h1 className="display-5 text-center w-75 fw-normal mx-auto" style={{ textShadow: '0 0 60px rgba(192,132,252,0.45)' }}>
+            We help brands go from <br /> Invisible → Credible → Desirable.
+          </h1>
+        </div>
+
         {/* Detailed Services */}
         <div className="container position-relative z-3 py-5">
           <div className="row g-5">
             {servicesData.map((service, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -135,9 +142,9 @@ export default function ServicesPage() {
                       <p className="text-info mb-0">{service.subtitle}</p>
                     </div>
                   </div>
-                  
+
                   <p className="text-secondary fs-5 mb-4">{service.desc}</p>
-                  
+
                   <div className="row g-3">
                     {service.features.map((feature, idx) => (
                       <div key={idx} className="col-6 d-flex align-items-center gap-2 text-secondary">
@@ -166,7 +173,7 @@ export default function ServicesPage() {
               { step: "04", title: "Launch into Space", desc: "Your brand is ready for the universe" }
             ].map((item, i) => (
               <div key={i} className="col-md-3">
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.08 }}
                   className="glass p-4 rounded-4 h-100"
                 >
@@ -187,14 +194,19 @@ export default function ServicesPage() {
           >
             <h3 className="display-5 fw-bold mb-3">Ready to launch your brand?</h3>
             <p className="fs-4 text-secondary mb-4">Join the brands already orbiting success</p>
-            <button 
-              onClick={() => window.location.href = '/'}
+            <button
+              // onClick={() => window.location.href = '/'}
+              onClick={() => setIsOpen(true)}
               className="btn btn-cosmic btn-lg px-5 py-3 fs-4 rounded-pill"
             >
               Start Your Journey Now <Rocket className="ms-2" />
             </button>
+
+            {/* <EmailModal isOpen={isOpen} onClose={() => setIsOpen(false)} /> */}
           </motion.div>
         </div>
+
+        <EmailModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
       </main>
 
       {/* <Footer /> */}

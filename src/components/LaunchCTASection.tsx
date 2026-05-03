@@ -2,8 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { Rocket, ArrowRight, Sparkles } from 'lucide-react';
+import EmailModal from './modals/EmailModal';
+import { useState } from 'react';
 
 export default function LaunchCTASection() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <section id="process" className="py-5 py-lg-6 position-relative cosmic-bg overflow-hidden border-top border-violet-subtle">
       <div className="nebula-overlay opacity-60" />
@@ -48,13 +52,16 @@ export default function LaunchCTASection() {
           <motion.button
             whileHover={{ scale: 1.08, y: -8 }}
             whileTap={{ scale: 0.96 }}
-            onClick={() => document.getElementById('tools')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => setIsOpen(true)}
+            // onClick={() => document.getElementById('tools')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn btn-cosmic btn-lg px-5 py-4 fs-3 fw-bold rounded-pill d-inline-flex align-items-center gap-3 shadow-lg"
           >
             Begin Launch Sequence 
             <Rocket size={28} />
             <ArrowRight size={28} />
           </motion.button>
+
+          <EmailModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
 
           <div className="mt-5 d-flex justify-content-center gap-5 text-secondary small">
             <div className="d-flex align-items-center gap-2">

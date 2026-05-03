@@ -4,9 +4,22 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
+import EmailModal from './modals/EmailModal';
+import { sendWhatsAppMessage } from '@/services/waService';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+      sendWhatsAppMessage({
+        phone: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "",
+        name: "Shreya",
+        email: "shreya@email.com",
+        project: "Dotflex Landing Page",
+        message: "Need branding + frontend development.",
+      });
+    };
 
   return (
     <nav className="navbar navbar-expand-lg fixed-top glass">
@@ -52,11 +65,15 @@ export default function Header() {
           </ul>
 
           <button
-            onClick={() => document.getElementById('tools')?.scrollIntoView({ behavior: 'smooth' })}
+            // onClick={() => setIsOpen(true)}
+            onClick={handleClick}
+            // onClick={() => document.getElementById('tools')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn btn-cosmic rounded-pill px-4 py-2 d-none d-lg-block fw-semibold"
           >
             Launch Orbit
           </button>
+
+          {/* <EmailModal isOpen={isOpen} onClose={() => setIsOpen(false)} /> */}
         </div>
       </div>
     </nav>

@@ -5,9 +5,11 @@ import { motion } from 'framer-motion';
 import Footer from '@/components/Footer';
 import { Rocket, Sparkles, Palette, CreditCard, Monitor, ArrowRight } from 'lucide-react';
 import Header from '@/components/Header';
+import EmailModal from '@/components/modals/EmailModal';
 
 export default function ProcessPage() {
     const [showWarp, setShowWarp] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         // Hide warp effect after 2.2 seconds
@@ -77,11 +79,13 @@ export default function ProcessPage() {
                     <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
+                        onClick={() => setIsOpen(true)}
                         className="btn btn-cosmic btn-lg px-5 py-3 rounded-pill fs-4"
-                        onClick={() => document.getElementById('orbit-intro')?.scrollIntoView({ behavior: 'smooth' })}
+                    // onClick={() => document.getElementById('orbit-intro')?.scrollIntoView({ behavior: 'smooth' })}
                     >
                         Begin Your Journey <ArrowRight className="ms-2" />
                     </motion.button>
+
                 </div>
             </section>
 
@@ -212,6 +216,8 @@ export default function ProcessPage() {
                     </div>
                 </div>
             </section>
+
+            <EmailModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
         </main>
     );
 }

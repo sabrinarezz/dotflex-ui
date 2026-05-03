@@ -4,8 +4,14 @@ import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import Float from './Float';
 import Gravity from './Gravity';
+import EmailModal from './modals/EmailModal';
+import { useContactModal } from '@/hooks/useContactModal';
+import { useState } from 'react';
 
 export default function Hero() {
+  // const { isOpen, openContactModal, closeContactModal } = useContactModal();
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       {/* <Gravity /> */}
@@ -34,11 +40,16 @@ export default function Hero() {
             <motion.button
               whileHover={{ scale: 1.07, y: -8 }}
               whileTap={{ scale: 0.96 }}
-              onClick={() => document.getElementById('tools')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => setIsOpen(true)}
+              // onClick={openContactModal}
+              // onClick={() => document.getElementById('tools')?.scrollIntoView({ behavior: 'smooth' })}
               className="btn btn-cosmic btn-lg px-5 py-2 fw-bold rounded-pill shadow-lg d-inline-flex align-items-center gap-2"
             >
               Enter Orbit <Sparkles size={22} />
             </motion.button>
+
+            {/* <EmailModal isOpen={isOpen} onClose={closeContactModal} /> */}
+            <EmailModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
           </motion.div>
         </div>
       </section>
