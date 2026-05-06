@@ -60,7 +60,7 @@ export default function ProcessPage() {
         <main className="min-vh-100 cosmic-bg overflow-hidden">
 
             {/* Nebula Hero Banner */}
-            <section className="nebula-hero position-relative d-flex align-items-center justify-content-center text-center min-vh-100">
+            {/* <section className="nebula-hero position-relative d-flex align-items-center justify-content-center text-center min-vh-100">
                 <div className="nebula-bg" />
                 <div className="floating-stars" />
 
@@ -87,7 +87,7 @@ export default function ProcessPage() {
                     </motion.button>
 
                 </div>
-            </section>
+            </section> */}
 
             {/* Warp Speed Entrance Effect */}
             {showWarp && (
@@ -97,9 +97,9 @@ export default function ProcessPage() {
             )}
 
             {/* Planet Orbit Intro */}
-            <section id="orbit-intro" className="py-5 position-relative">
-                <div className="container">
-                    <div className="text-center mb-5">
+            <section id="orbit-intro" className="py-5 mt-5 starfield-canvas opacity-100 position-relative">
+                <div className="container d-md-flex align-items-center">
+                    <div className="text-center mb-5 col-md-5">
                         <h2 className="display-4 fw-bold mb-3">Your Brand’s Cosmic Journey</h2>
                         <p className="fs-4 text-secondary">Four powerful phases. Zero friction.</p>
                     </div>
