@@ -2,9 +2,7 @@ import Link from "next/link";
 import styles from "./Footer.module.css";
 
 import {
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
+  FaWhatsapp
 } from "public";
 
 export default function Footer() {
