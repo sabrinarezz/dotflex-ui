@@ -2,8 +2,10 @@ import Link from "next/link";
 import styles from "./Footer.module.css";
 
 import {
-  FaWhatsapp
-} from "public";
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "lucide-react";
 
 export default function Footer() {
   return (
