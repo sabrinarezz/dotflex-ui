@@ -1,27 +1,103 @@
-import Image from "next/image";
+import styles from "./Footer.module.css";
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="glass cosmic-bg pt-2 mt-auto">
-      <div className="container text-center d-flex justify-content-between align-items-center">
-        <div className="d-flex align-items-center justify-content-center gap-2">
-          <div className="logo">
-            <Image
-              className="rounded-circle"
-              src="/logo-dark-2.png"
-              alt="Next.js logo"
-              width={50}
-              height={50}
-              priority
-            />
+    <footer className={styles.footer}>
+      <div className={styles.footerContainer}>
+        
+        {/* Left Section */}
+        <div className={styles.footerBrand}>
+          <div className={styles.logo}>
+            <div className={styles.logoCircle}>D</div>
+            <span>Dotflex.UI</span>
           </div>
-          <div className="brandname">
-            <span className="fw-bold">Dotflex</span>
-            <span className="fw-normal">.UI</span>
+
+          <p className={styles.tagline}>
+            Brands born among the stars.
+            <br />
+            Your identity,
+            <br />
+            launched from deep space.
+          </p>
+
+          <div className={styles.socialIcons}>
+            <Link href="#" className={styles.socialBox}>
+              tw
+            </Link>
+
+            <Link href="#" className={styles.socialBox}>
+              in
+            </Link>
+
+            <Link href="#" className={styles.socialBox}>
+              ig
+            </Link>
           </div>
         </div>
-        <p className="text-secondary mb-0 d-none d-md-block">© {new Date().getFullYear()} DOTFLEX — Brands launched from deep space.</p>
+
+        {/* Services */}
+        <div className={styles.footerColumn}>
+          <h3>SERVICES</h3>
+
+          <ul>
+            <li>
+              <Link href="#">Brand Identity</Link>
+            </li>
+            <li>
+              <Link href="#">AI Logo Studio</Link>
+            </li>
+            <li>
+              <Link href="#">Business Cards</Link>
+            </li>
+            <li>
+              <Link href="#">UI/UX Design</Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Tools */}
+        <div className={styles.footerColumn}>
+          <h3>TOOLS</h3>
+
+          <ul>
+            <li>
+              <Link href="#">Name Generator</Link>
+            </li>
+            <li>
+              <Link href="#">Logo Builder</Link>
+            </li>
+            <li>
+              <Link href="#">Card Maker</Link>
+            </li>
+            <li>
+              <Link href="#">UI Launchpad</Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Company */}
+        <div className={styles.footerColumn}>
+          <h3>COMPANY</h3>
+
+          <ul>
+            <li>
+              <Link href="#">Process</Link>
+            </li>
+            <li>
+              <Link href="#">Contact</Link>
+            </li>
+            <li>
+              <Link href="#">Launch Orbit</Link>
+            </li>
+            <li>
+              <Link href="#">Privacy</Link>
+            </li>
+          </ul>
+        </div>
       </div>
+
+      <div className={styles.footerBottom}></div>
     </footer>
   );
 }
