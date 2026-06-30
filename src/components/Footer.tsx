@@ -5,7 +5,7 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
-} from "react-icons/fa";
+} from "public";
 
 export default function Footer() {
   return (
