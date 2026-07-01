@@ -1,11 +1,7 @@
 import Link from "next/link";
 import styles from "./Footer.module.css";
 
-import {
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from "lucide-react";
+import { FaInstagram,FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
 export default function Footer() {
   return (
