@@ -1,0 +1,61 @@
+.carousel-section{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:40px 0;
+
+}
+
+.carousel{
+
+    display:flex;
+
+    gap:24px;
+
+    overflow-x:auto;
+
+    scroll-behavior:smooth;
+
+    scrollbar-width:none;
+
+    flex:1;
+
+}
+
+.carousel::-webkit-scrollbar{
+    display:none;
+}
+
+.arrow{
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
+
+    cursor:pointer;
+
+    font-size:22px;
+
+    transition:.3s;
+
+}
+
+.arrow:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+}
