@@ -3,13 +3,13 @@ import { Inter } from 'next/font/google';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
 import './../components/Components.css';
-import Footer from '@/components/Footer';
+import Footer from '@/KRISH_COMPONENTS/Footer/Footer';
 import Header from '@/components/Header';
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700'] });
 
 export const metadata: Metadata = {
-  title: 'Dotflex.UI',
+  title: 'KRISH- COMPONENTS',
   description: 'Instant brand names • Logos • Business cards • Full UI/UX. Launch your brand in minutes.',
 };
 
@@ -22,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
       </head>
       <body className={`${inter.className} bg-dark text-white`}>
+        
         <Header />
         {children}
         <Footer />

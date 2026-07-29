@@ -1,0 +1,170 @@
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 140px 20px 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+}
+
+.hero__gradient {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at right top,
+            rgba(102, 157, 219, 0.45),
+            transparent 60%),
+        radial-gradient(circle at left bottom,
+            rgba(248, 181, 239, 0.45),
+            transparent 60%);
+    z-index: 0;
+}
+
+.hero__container {
+    position: relative;
+    z-index: 1;
+    max-width: 820px;
+    text-align: center;
+}
+
+.hero__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 18px;
+    margin-bottom: 26px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    border: 1px solid #ffe1d7;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: #ff7f66;
+
+    backdrop-filter: blur(10px);
+}
+
+.hero__title {
+    margin: 0;
+
+    font-size: clamp(2.8rem, 5vw, 4.6rem);
+
+    line-height: 1.08;
+
+    font-weight: 800;
+
+    color: #1d2647;
+}
+
+.hero__description {
+    max-width: 650px;
+
+    margin: 28px auto 0;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    color: #626b84;
+}
+
+.hero__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+
+    margin-top: 42px;
+
+    flex-wrap: wrap;
+}
+
+.hero__button {
+    padding: 16px 32px;
+
+    border-radius: 999px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    border: none;
+}
+
+.hero__button--primary {
+    background: #ff8b73;
+    color: white;
+    box-shadow: 0 12px 30px rgba(255, 139, 115, 0.28);
+}
+
+.hero__button--primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(255, 139, 115, 0.35);
+}
+
+.hero__button--secondary {
+    background: white;
+    color: #20264d;
+    border: 1px solid #dfe4f2;
+}
+
+.hero__button--secondary:hover {
+    background: #f8f9fc;
+    transform: translateY(-3px);
+}
+
+.hero__meta {
+    margin-top: 36px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    flex-wrap: wrap;
+
+    font-size: 14px;
+
+    color: #8d95ab;
+}
+
+@media (max-width: 768px) {
+
+    .hero {
+        padding: 100px 24px 80px;
+    }
+
+    .hero__title {
+        font-size: 2.6rem;
+    }
+
+    .hero__description {
+        font-size: 16px;
+    }
+
+    .hero__buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero__button {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .hero__meta {
+        gap: 10px;
+        font-size: 13px;
+    }
+}

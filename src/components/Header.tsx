@@ -47,8 +47,8 @@ export default function Header() {
             />
           </div>
           <div className="brandname">
-            <span className="fw-bold">Dotflex</span>
-            <span className="fw-normal">.UI</span>
+            <span className="fw-bold">KRISH COMPONENTS</span>
+            <span className="fw-normal"></span>
           </div>
         </Link>
 

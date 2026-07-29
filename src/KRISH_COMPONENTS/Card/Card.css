@@ -1,6 +1,6 @@
 .card{
     width:320px;
-    background:white;
+    background:linear-gradient(135deg,#779bff ,#fdfdfc ,#ffa947 );
     border-radius:18px;
     overflow:hidden;
     box-shadow:0 12px 30px rgba(0,0,0,.08);
